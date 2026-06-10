@@ -10,7 +10,7 @@ Xiwei Chen 1, Ufuk Beyaztas 2, Caihong Qin 1, Heyang Ji 1, Gilson Honvoh3, Roger
 ---
 
 **Abstract** \
-Instrumental variables (IVs) are widely used to adjust for measurement error (ME) bias when assessing associations of health outcomes with ME-prone independent variables. IV approaches addressing ME in longitudinal models are well established, but few methods exist for functional regression. We develop two methods to adjust for ME bias in scalar-on-function linear errors-in-variables (EV) models. We regress a scalar outcome on an ME-prone functional variable using a functional IV for model identification and propose two least squares–based methods to adjust for ME bias. Our methods alleviate potential computational challenges encountered when applying classical regression calibration methods for bias adjustment in high-dimensional settings and adjust for potential serial correlations across time. Simulations demonstrate faster run times, lower bias, and lower AIMSE for the proposed methods when compared to existing approaches. The proposed methods were applied to investigate the association between body mass index and wearable device-based physical activity intensity among community-dwelling adults living in the United States.
+Instrumental variables (IVs) are widely used to adjust for measurement error (ME) bias when assessing associations of health outcomes with ME-prone independent variables. IV approaches addressing ME in longitudinal models are well established, but few methods exist for functional regression. We develop two methods to adjust for ME bias in scalar-on-function linear errors-in-variables (EIV) models. We regress a scalar outcome on an ME-prone functional variable using a functional IV for model identification and propose two least squares–based methods to adjust for ME bias. Our methods alleviate potential computational challenges encountered when applying classical regression calibration methods for bias adjustment in high-dimensional settings and adjust for potential serial correlations across time. Simulations demonstrate faster run times, lower bias, and lower AIMSE for the proposed methods when compared to existing approaches. The proposed methods were applied to investigate the association between body mass index and wearable device-based physical activity intensity among community-dwelling adults living in the United States.
 
 ---
 
@@ -19,7 +19,7 @@ This repository contains R code accompanying the paper:
 **“Least squares-based bias adjustment methods for scalar-on-function linear errors-in-variables models using a functional instrumental variable.”**
 
 We provide:
-- Data simulation code for scalar-on-function linear errors-in-variables (EV) models with functional covariates
+- Data simulation code for scalar-on-function linear errors-in-variables (EIV) models with functional covariates
 - Implementations of measurement error correction methods:
   - **MULTI-2SLS** (proposed)
   - **PW-2SLS** (proposed)
@@ -29,9 +29,15 @@ We provide:
 - Performance metric computations for the five estimators:
   - **ABias<sup>2</sup>**, **AVar**, **AIMSE**, **MSPEE**
 - Simulation example code to assess sample-size effects
-- NHANES (2005–2006) data-processing code used in the real-data application (NHANES data are public and not redistributed here)
-
-> **Note:** NHANES data are publicly available from the U.S. [CDC](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2005). This repo includes **only** code to prepare the specific NHANES cycle used in the paper.
+- NHANES (2005–2006 cycle) data-processing code used in the real-data application  
+  All raw data files were obtained from the NHANES 2005–2006 cycle through the [U.S. CDC website](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2005).  
+  The following component files were downloaded:
+  - Demographic Variables & Sample Weights: [DEMO_D](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DEMO_D.xpt)
+  - Body Measures: [BMX_D](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/BMX_D.xpt)
+  - Diabetes: [DIQ_D](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DIQ_D.xpt)
+  - Physical Activity Monitor: [PAXRAW_D](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/PAXRAW_D.zip)
+  
+  Running the code available in the accompanying GitHub repository on the publicly available NHANES files reproduces the analytic dataset used in this study.
 
 ---
 
@@ -64,7 +70,7 @@ This repo contains three main R scripts:
    **File:** `R/<Example_DataSimulation>.R`
 
 3. **NHANES (2005–2006) data preparation**  
-   - Code to process the NHANES 2005–2006 cycle used in the paper  
+   - Code to reproduce the analytic dataset used in this study from the publicly available NHANES 2005–2006 data, including merging, cleaning, and variable derivation procedures  
    **File:** `R/<Application_NHANES2005_DataPrep>.R`
 
 ---
