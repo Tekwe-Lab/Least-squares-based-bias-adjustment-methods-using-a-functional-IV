@@ -94,8 +94,9 @@ This repo contains five main R scripts:
 
 5. **Real-data application**  
    - Runs the NHANES (2005–2006) analysis using the processed dataset and the core real-data analysis functions
-   - Produces the figures and tables reported in the manuscript
+   - Produces the figures and tables reported in the manuscript \
    **File:** `R/Application.R`
+
 
 ---
 
