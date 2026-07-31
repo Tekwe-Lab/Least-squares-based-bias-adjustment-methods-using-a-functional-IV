@@ -100,7 +100,7 @@ This repo contains five main R scripts:
 
 ---
 
-- ## Requirements
+## Requirements
 
 - R (version 4.0 or later recommended)
 - Required R packages:
