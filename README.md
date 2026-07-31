@@ -37,13 +37,7 @@ We provide:
   - Body Measures: [BMX_D](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/BMX_D.xpt)
   - Diabetes: [DIQ_D](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DIQ_D.xpt)
   - Physical Activity Monitor: [PAXRAW_D](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/PAXRAW_D.zip)
-  
-  Download and organise the files:
-  - Download the above datasets from the CDC website.
-  - Create a local directory of your choice (referred to below as /YOUR/DIRECTORY/) and place all downloaded files there.
-  - The physical activity monitor dataset (PAXRAW_D) is distributed by the CDC as a compressed .zip archive. Extract the archive before running the data preparation script so that the corresponding .xpt file is available in /YOUR/DIRECTORY/.
-  - Open the data preparation script and replace the placeholder file paths with the location of your local data directory (i.e., /YOUR/DIRECTORY/).
-  
+
   Running the data preparation script on these publicly available NHANES files reproduces the analytic dataset used in the real-data application.
 - **Real-data application for scalar-on-function linear errors-in-variables (EIV) models with functional covariates using the processed NHANES (2005–2006 cycle) data**
   - Data analysis procedures
@@ -71,7 +65,6 @@ We provide:
 ## Repository structure
 
 This repo contains five main R scripts:
-
 1. **Core functions for simulation studies**  
    - Data simulation functions  
    - Measurement error correction methods: MULTI-2SLS, PW-2SLS, SIMEX, Oracle, Naive  
@@ -97,6 +90,13 @@ This repo contains five main R scripts:
    - Produces the figures and tables reported in the manuscript \
    **File:** `R/Application.R`
 
+Download and organise the files:
+1. Create a local directory of your choice (referred to below as /YOUR/DIRECTORY/)
+2. Download the five R scripts from the repo and raw data files from the CDC website.
+3. The physical activity monitor dataset (PAXRAW_D) is distributed by the CDC as a compressed .zip archive. Extract the archive before running the data preparation script so that the corresponding .xpt file is available in /YOUR/DIRECTORY/.
+4. Place all downloaded files in /YOUR/DIRECTORY/.
+5. Run the data preparation script. The processed NHANES (2005–2006) data will be saved to /YOUR/DIRECTORY/.
+6. Run Simulation.R to reproduce the simulation results and Application.R to reproduce the real-data analysis. The corresponding output tables and figures will be saved to /YOUR/DIRECTORY/. 
 
 ---
 
